@@ -6,7 +6,7 @@ const Home = () => {
     return (
         <div>
             <Row  justify='center' style={{alignItems: "center"}}>
-                <Col xs={18} sm={12} md={10} lg={8} >
+                <Col xs={20} sm={12} md={10} lg={8} >
                     <DynamicHeader />
                 </Col>
             </Row>
