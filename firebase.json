@@ -7,7 +7,7 @@
     "predeploy": "npm --prefix \"$RESOURCE_DIR\" run build"
   },
   "hosting": {
-    "public": "wenhop-frontend/public",
+    "public": "wenhop-frontend/build",
     "ignore": [
       "firebase.json",
       "**/.*",
