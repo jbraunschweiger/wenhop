@@ -5,11 +5,10 @@ import {
   Route
 } from "react-router-dom";
 import './App.css';
-
 import Firebase, {withFirebase} from './firebase/index'
 
 // Pages
-import Home from './pages/home'
+import Home from './views/home'
 
 function App(props: {firebase: Firebase}) {
   return (

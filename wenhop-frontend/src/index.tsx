@@ -4,6 +4,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import Firebase, { FirebaseContext } from './firebase/index'
+import 'antd/dist/antd.css'
 
 ReactDOM.render(
   <React.StrictMode>
