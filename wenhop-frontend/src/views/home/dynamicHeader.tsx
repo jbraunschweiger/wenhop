@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react'
 import Firebase, {withFirebase} from '../../firebase'
 import {IPrototype} from '../../types'
 import {getPrototypes} from '../../controllers/prototypes'
-import { Typography, Skeleton } from 'antd';
+import { Typography, Spin } from 'antd';
 
 type DynamicHeaderProps = {
     firebase: Firebase
@@ -14,7 +14,7 @@ const DynamicHeader = (props: DynamicHeaderProps) => {
         if(props.firebase) {
             getPrototypes(props.firebase).then((prototypes) => setPototypes(prototypes));
         }
-    }, [])
+    }, [props.firebase])
 
     const getText = (prototype: IPrototype) => {
         if(!prototype) {
@@ -64,7 +64,7 @@ const DynamicHeader = (props: DynamicHeaderProps) => {
                     {getText(prototypes[0])}
                 </Typography.Title>
                 :
-                <Skeleton active />
+                <Spin />
             }
         </Typography>
     )
