@@ -1,8 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import Firebase, {withFirebase} from '../../firebase'
-import {IPrototype} from '../../types'
 import {getRocketTabs} from '../../wiki'
-import { Typography, Descriptions, Spin, Tabs, Skeleton } from 'antd';
+import { Typography, Tabs, Skeleton } from 'antd';
 
 const { TabPane } = Tabs;
 
@@ -21,12 +20,22 @@ const RocketTabs = (props: RocketTabsProps) => {
         if(props.firebase) {
             getRocketTabs(props.rocketName).then((data) => setData(data));
         }
-    }, [props.firebase])
+    }, [props.firebase, props.rocketName])
 
+    const ignoredHeadings = ['See also', 'References', 'Bibliography', 'External links']
+    const filteredData = (data ? data.filter((value)=>{
+        if(ignoredHeadings.includes(value.title)) {
+            return false
+        } 
+        if (value.content === '') {
+            return false
+        }
+        return true
+    }) : [])
     return (
         <Tabs defaultActiveKey="0" onChange={()=>console.log("poop")}>
-            { data 
-                ? data.map((tab, index) => 
+            { filteredData 
+                ? filteredData.map((tab, index) => 
                     <TabPane tab={tab.title} key={index}>
                         {tab.content}
                         {tab.items && tab.items.map((item, index) => 

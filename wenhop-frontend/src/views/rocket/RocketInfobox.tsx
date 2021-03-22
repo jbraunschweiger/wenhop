@@ -15,7 +15,7 @@ const RocketInfobox = (props: RocketInfoboxProps) => {
             console.log("SETTING DATA ", data)
             setData(data)
         });
-    }, [])
+    }, [props.rocketName])
 
     var mappedData: any[] = [];
     if(data) {
@@ -24,6 +24,7 @@ const RocketInfobox = (props: RocketInfoboxProps) => {
         delete tempData.caption
         delete tempData.sp
         delete tempData.capacities
+        delete tempData.mass
         mappedData = Object.entries(tempData)
         mappedData = (mappedData.length > 10 ? mappedData.slice(0,9) : mappedData)
     }
@@ -33,7 +34,7 @@ const RocketInfobox = (props: RocketInfoboxProps) => {
         <div>
             { mappedData.length > 0 
                 ? 
-                    <Descriptions  bordered>
+                    <Descriptions bordered>
                         {mappedData.map((entry, value) =>{ 
                             return <Descriptions.Item span={24} key={entry[0]} label={entry[0]}>{entry[1]}</Descriptions.Item>
                         })}

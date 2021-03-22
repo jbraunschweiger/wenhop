@@ -1,8 +1,8 @@
-import React, {useEffect, useState} from 'react'
+import {useEffect, useState} from 'react'
 import Firebase, {withFirebase} from '../../firebase'
-import {IPrototype} from '../../types'
 import {getRocketImage} from '../../wiki'
-import { Typography, Descriptions, Spin, Image } from 'antd';
+import { Button, Image, Row } from 'antd';
+import { LinkOutlined } from '@ant-design/icons'
 
 type RocketImageProps = {
     firebase: Firebase,
@@ -15,15 +15,32 @@ const RocketImage = (props: RocketImageProps) => {
         if(props.firebase) {
             getRocketImage(props.rocketName).then((url) => setUrl(url));
         }
-    }, [props.firebase])
+    }, [props.firebase, props.rocketName])
 
     return (
-        <Image width={"100%"} src={url} style={imageStyles}/>
+        <div>
+            <Row>
+                <Image width={"100%"} src={url} style={imageStyles}/>
+            </Row>
+            <Row justify='end'>
+                <Button type="primary" href={url} icon={<LinkOutlined style={iconStyles} />} size='middle' style={buttonStyles}>
+                </Button>
+            </Row>
+        </div>
     )
 }
 
 export default withFirebase(RocketImage)
 
 const imageStyles = {
-    padding: 0
+    borderRadius: 3
+}
+
+const iconStyles = {
+    marginLeft:2,
+    marginBottom:2
+}
+
+const buttonStyles = {
+    marginTop: 5,
 }

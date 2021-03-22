@@ -1,5 +1,4 @@
 import wiki from 'wikijs';
-var parseInfo = require("infobox-parser")
 
 export const getRocketImage = async (name: string) => {
     const page = await wiki().page(name);

@@ -1,7 +1,7 @@
-import React, {useState} from 'react'
+import {useState} from 'react'
 import DynamicHeader from './dynamicHeader'
-import { Row, Col, Button, Input } from 'antd';
-import {getRocketInfobox, getRocketTabs} from '../../wiki'
+import { Row, Col, Input } from 'antd';
+import {getRocketInfobox} from '../../wiki'
 
 const { Search } = Input;
 
