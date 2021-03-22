@@ -6,10 +6,12 @@ import {
 } from "react-router-dom";
 import './App.css';
 
+import Firebase, {withFirebase} from './firebase/index'
+
 // Pages
 import Home from './pages/home'
 
-function App() {
+function App(props: {firebase: Firebase}) {
   return (
     <Router>
       <Switch>
@@ -19,4 +21,4 @@ function App() {
   );
 }
 
-export default App;
+export default withFirebase(App);
