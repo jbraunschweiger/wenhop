@@ -60,7 +60,7 @@ const DynamicHeader = (props: DynamicHeaderProps) => {
                 🚀
             </Typography.Title>
             { prototypes ?
-                <Typography.Title level={1} style={titleStyles}>
+                <Typography.Title level={2} style={titleStyles}>
                     {getText(prototypes[0])}
                 </Typography.Title>
                 :
@@ -73,17 +73,17 @@ const DynamicHeader = (props: DynamicHeaderProps) => {
 export default withFirebase(DynamicHeader)
 
 const headerStyles = {
-    fontSize: 75,
+    fontSize: 70,
     marginTop: 30,
-    marginBottom: 30
+    marginBottom: 20
 }
 
 const emojiStyles = {
-    fontSize: 100,
+    fontSize: 95,
     marginTop: 40,
     marginBottom: 40
 }
 
 const titleStyles = {
-    fontFamily: "Poppins"
+    fontFamily: "Poppins",
 }
