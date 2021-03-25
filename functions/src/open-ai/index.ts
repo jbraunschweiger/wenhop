@@ -15,8 +15,8 @@ export const getArticles = functions.https.onRequest(async (request, response) =
     const NewsAPIKey = functions.config().newsapi.key
     const newsapi = new NewsAPI(NewsAPIKey);
 
-    // const categories = ['business','entertainment','general','health','science','sports','technology']
-    const categories = ['business','health']
+    // excluding politics for open-ai compliance
+    const categories = ['business','entertainment','general','health','science','sports','technology']
     const articlePromises = categories.map((category)=>getArticle(newsapi, category))
     const articles = await Promise.all(articlePromises);
 
