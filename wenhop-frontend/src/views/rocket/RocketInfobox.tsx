@@ -25,6 +25,10 @@ const RocketInfobox = (props: RocketInfoboxProps) => {
         delete tempData.sp
         delete tempData.capacities
         delete tempData.mass
+        delete tempData.logo
+        delete tempData.alt
+        delete tempData.cpl
+        delete tempData.logoAlt
         mappedData = Object.entries(tempData)
         mappedData = (mappedData.length > 10 ? mappedData.slice(0,9) : mappedData)
     }

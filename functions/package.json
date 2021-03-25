@@ -13,8 +13,13 @@
   },
   "main": "lib/index.js",
   "dependencies": {
-    "firebase-admin": "^9.2.0",
-    "firebase-functions": "^3.11.0"
+    "@types/axios": "^0.14.0",
+    "axios": "^0.21.1",
+    "firebase": "^8.3.1",
+    "firebase-admin": "^9.5.0",
+    "firebase-functions": "^3.11.0",
+    "newsapi": "^2.4.1",
+    "openai-api": "^1.0.17"
   },
   "devDependencies": {
     "typescript": "^3.8.0",
