@@ -63,7 +63,7 @@ const getArticleStub = async (openai: any, article: IAPIArticle) => {
             bestOf: 1,
             n: 1,
             stream: false,
-            stop: ['###'] // stop model from generating fake articles
+            stop: ['###','Title'] // stop model from generating fake articles
         })
         const choices = (response.data.choices ? response.data.choices as any[] : [])
         const choice = (choices.length > 0 ? choices[0] : null)
